@@ -35,14 +35,14 @@
             <visual>
                 <origin xyz="0.037749 0.007604 -0.011799" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0.037749 0.007604 -0.011799" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body_1.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -56,14 +56,14 @@
             <visual>
                 <origin xyz="0.055804 0.007105 -0.009798" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw_3.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0.055804 0.007105 -0.009798" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw_3.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -77,14 +77,14 @@
             <visual>
                 <origin xyz="0.055804 0.007105 0.012602" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw_4.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0.055804 0.007105 0.012602" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw_4.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
