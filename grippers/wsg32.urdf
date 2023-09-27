@@ -1,0 +1,118 @@
+<?xml version="1.0" ?>
+<robot name="wsg32"
+    xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <xacro:property name="deg" value="0.017453293" />
+    <!--degrees to radians-->
+    <xacro:property
+    name="joint_damping" value="1.0" />
+
+    <xacro:macro name="wsg32_link" params="base_link:='' xyz:='0 0 0' rpy:='0 0 0' materials_:=0">
+        <xacro:if value="${not base_link}">    
+            <link name="base_link_gripper"></link>
+        </xacro:if>
+
+        <xacro:if value="${materials_}">    
+            <xacro:include filename="$(find wsg32_description)/grippers/materials.xacro" />
+        </xacro:if>
+
+        <xacro:unless value="${not base_link}">
+            <xacro:property name="parent" value="${base_link}" />
+            <joint name="$wgs32_joint_${base_link}" type="fixed">
+                <parent link="${parent}"/>
+                <child link="WSG-32_Body"/>
+                <origin rpy="${rpy}" xyz="${xyz}"/>
+            </joint>
+        </xacro:unless>
+
+
+        <link name="WSG-32_Body">
+            <inertial>
+                <origin xyz="0.03574340512333041 -0.027873336366329354 -0.012493199179186804" rpy="0 0 0"/>
+                <mass value="1.506317966969221"/>
+                <inertia ixx="0.000527" iyy="0.001724" izz="0.002034" ixy="5.2e-05" iyz="-0.0" ixz="0.0"/>
+              </inertial>
+            <visual>
+                <origin xyz="0.037749 0.007604 -0.011799" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="silver"/>
+            </visual>
+            <collision>
+                <origin xyz="0.037749 0.007604 -0.011799" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="Base_Jaw_2">
+            <inertial>
+                <origin xyz="0.08503018494095639 -0.06013843252995674 -0.0033036600416418175" rpy="0 0 0"/>
+                <mass value="0.048005219849158315"/>
+                <inertia ixx="1.1e-05" iyy="1.1e-05" izz="1.3e-05" ixy="5e-06" iyz="-3e-06" ixz="3e-06"/>
+              </inertial>
+            <visual>
+                <origin xyz="0.055804 0.007105 -0.009798" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="silver"/>
+            </visual>
+            <collision>
+                <origin xyz="0.055804 0.007105 -0.009798" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <link name="Base_Jaw_1">
+            <inertial>
+                <origin xyz="0.025579123197365217 -0.06013843252995674 0.004705428018545392" rpy="0 0 0"/>
+                <mass value="0.048005219849158315"/>
+                <inertia ixx="1.1e-05" iyy="1.1e-05" izz="1.3e-05" ixy="-5e-06" iyz="3e-06" ixz="3e-06"/>
+              </inertial>
+            <visual>
+                <origin xyz="0.055804 0.007105 0.012602" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+                <material name="silver"/>
+            </visual>
+            <collision>
+                <origin xyz="0.055804 0.007105 0.012602" rpy="0 0 0"/>
+                <geometry>
+                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                </geometry>
+            </collision>
+        </link>
+
+        <joint name="base_to_wsg" type="fixed">
+            <origin xyz="-0.039 -0.070704 -0.000701" rpy="0 0 0"/>
+            <parent link="base_link_gripper"/>
+            <child link="WSG-32_Body"/>
+        </joint>
+
+        <joint name="right_joint" type="prismatic">
+            <origin xyz="-0.018055 0.000499 -0.024401" rpy="0 0 0"/>
+            <parent link="WSG-32_Body"/>
+            <child link="Base_Jaw_1"/>
+            <axis xyz="1.0 0.0 0.0"/>
+            <limit upper="0.034" lower="0.0" effort="100" velocity="100"/>
+            <dynamics damping="${joint_damping}" />
+        </joint>
+
+        <joint name="left_joint" type="prismatic">
+            <origin xyz="-0.018055 0.000499 -0.002001" rpy="0 0 0"/>
+            <parent link="WSG-32_Body"/>
+            <child link="Base_Jaw_2"/>
+            <axis xyz="-1.0 -0.0 -0.0"/>
+            <limit upper="0.034" lower="0.0" effort="100" velocity="100"/>
+            <mimic joint="right_joint" multiplier="1" offset="0" />
+            <dynamics damping="${joint_damping}" />
+        </joint>
+
+    </xacro:macro>
+</robot>

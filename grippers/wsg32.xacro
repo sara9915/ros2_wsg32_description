@@ -1,0 +1,6 @@
+<?xml version='1.0' encoding='utf-8'?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="wgs32">
+
+  <xacro:include filename="$(find wsg32_description)/grippers/wsg32.urdf"/>
+  <xacro:wsg32_link base_link='' xyz="0 0 0" rpy="0 0 0" materials_="1"/>
+</robot>
