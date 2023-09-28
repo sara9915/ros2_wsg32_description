@@ -17,16 +17,6 @@
             <xacro:include filename="$(find wsg32_description)/grippers/materials.xacro" />
         </xacro:if>
 
-        <xacro:unless value="${not base_link}">
-            <xacro:property name="parent" value="${base_link}" />
-            <joint name="$wgs32_joint_${base_link}" type="fixed">
-                <parent link="${parent}"/>
-                <child link="WSG-32_Body"/>
-                <origin rpy="${rpy}" xyz="${xyz}"/>
-            </joint>
-        </xacro:unless>
-
-
         <link name="WSG-32_Body">
             <inertial>
                 <origin xyz="0.03574340512333041 -0.027873336366329354 -0.012493199179186804" rpy="0 0 0"/>
@@ -91,7 +81,7 @@
         </link>
 
         <joint name="base_to_wsg" type="fixed">
-            <origin xyz="-0.0002 -0.0076 -0.0007" rpy="0 0 -1.57"/>
+            <origin xyz="-0.0002 -0.0076 -0.0007" rpy="3.14 0 -1.57"/>
             <parent link="base_link_gripper"/>
             <child link="WSG-32_Body"/>
         </joint>
