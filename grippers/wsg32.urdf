@@ -97,20 +97,20 @@
         </joint>
 
         <joint name="right_joint" type="prismatic">
-            <origin xyz="-0.039 -0.07 0" rpy="0.28 -1.57 1.39"/>
-            <parent link="base_link_gripper"/>
+            <origin xyz="0.062 -0.039 0.001" rpy="0 -1.570 3.140"/>
+            <parent link="WSG-32_Body"/>
             <child link="Base_Jaw_1"/>
-            <axis xyz="0.0 -1.0 0.0"/>
-            <limit upper="0.034" lower="0.0" effort="100" velocity="100"/>
+            <axis xyz="0.0 1.0 0.0"/>
+            <limit upper="0" lower="-0.034" effort="100" velocity="100"/>
             <dynamics damping="${joint_damping}" />
         </joint>
 
         <joint name="left_joint" type="prismatic">
-            <origin xyz="0.038 -0.07 0" rpy="-0.28 1.570796 -1.742607"/>
-            <parent link="base_link_gripper"/>
+            <origin xyz="0.062 0.038 0.001" rpy="0 1.570 0"/>
+            <parent link="WSG-32_Body"/>
             <child link="Base_Jaw_2"/>
-            <axis xyz="0.0 1.0 -0.0"/>
-            <limit upper="0.034" lower="0.0" effort="100" velocity="100"/>
+            <axis xyz="0.0 -1.0 -0.0"/>
+            <limit upper="0" lower="-0.034" effort="100" velocity="100"/>
             <mimic joint="right_joint" multiplier="-1" offset="0" />
             <dynamics damping="${joint_damping}" />
         </joint>
