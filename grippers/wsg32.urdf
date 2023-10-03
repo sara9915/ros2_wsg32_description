@@ -91,7 +91,7 @@
             <parent link="WSG-32_Body"/>
             <child link="Base_Jaw_1"/>
             <axis xyz="0.0 1.0 0.0"/>
-            <limit upper="0" lower="-0.034" effort="100" velocity="100"/>
+            <limit upper="0.0" lower="-0.034" effort="100.0" velocity="100.0"/>
             <dynamics damping="${joint_damping}" />
         </joint>
 
@@ -100,7 +100,7 @@
             <parent link="WSG-32_Body"/>
             <child link="Base_Jaw_2"/>
             <axis xyz="0.0 -1.0 -0.0"/>
-            <limit upper="0" lower="-0.034" effort="100" velocity="100"/>
+            <limit upper="0.0" lower="-0.034" effort="100.0" velocity="100.0"/>
             <mimic joint="right_joint" multiplier="-1" offset="0" />
             <dynamics damping="${joint_damping}" />
         </joint>
