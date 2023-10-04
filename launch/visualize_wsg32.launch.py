@@ -8,12 +8,12 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    wsg32_xacro_file = os.path.join(get_package_share_directory('wsg32_description'), 'grippers',
+    wsg32_xacro_file = os.path.join(get_package_share_directory('wsg32_description_ros2'), 'grippers',
                                      'wsg32.xacro')
     robot_description = Command(
         [FindExecutable(name='xacro'), ' ', wsg32_xacro_file])
 
-    rviz_file = os.path.join(get_package_share_directory('wsg32_description'), 'rviz',
+    rviz_file = os.path.join(get_package_share_directory('wsg32_description_ros2'), 'rviz',
                              'visualize_wsg32.rviz')
 
     return LaunchDescription([   

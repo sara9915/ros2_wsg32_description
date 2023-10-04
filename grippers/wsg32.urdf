@@ -14,7 +14,7 @@
         </xacro:if>
 
         <xacro:if value="${materials_}">    
-            <xacro:include filename="$(find wsg32_description)/grippers/materials.xacro" />
+            <xacro:include filename="$(find wsg32_description_ros2)/grippers/materials.xacro" />
         </xacro:if>
 
         <link name="WSG-32_Body">
@@ -26,14 +26,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/WSG-32_Body.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -47,14 +47,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
@@ -68,14 +68,14 @@
             <visual>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
                 <material name="silver"/>
             </visual>
             <collision>
                 <origin xyz="0 0 0" rpy="0 0 0"/>
                 <geometry>
-                    <mesh filename="file://$(find wsg32_description)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
+                    <mesh filename="file://$(find wsg32_description_ros2)/meshes/Base_Jaw.stl" scale="0.001 0.001 0.001"/>
                 </geometry>
             </collision>
         </link>
